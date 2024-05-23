@@ -1,0 +1,53 @@
+﻿
+@{
+    Dictionary<string, string> burgerImages = new Dictionary<string, string>
+    {
+        { "Cheeseburger", "/images/cheeseburger.jpg" },
+        { "Burger", "/images/burger.jpg" },
+        { "FishBurger", "/images/fishburger.jpg" },
+     { "RoastedChicken", "/images/roasted.jpg" }
+    };
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CreateBurger</title>
+    <link rel="stylesheet" href="/css/Burgers.css" />
+
+</head>
+
+
+
+
+<body>
+  
+    <h1>Create Your Burger</h1>
+    <form method="post" asp-action="CreateBurger">
+        <label for="burgerType">Select Burger Type:</label>
+        <select id="burgerType" name="selectedBurger">
+            <option value="">-- Select a Burger --</option>
+            <option value="Cheeseburger">Cheeseburger</option>
+            <option value="Burger">Burger</option>
+            <option value="FishBurger">Fish Burger</option>
+            <option value="RoastedChicken">Roasted Chicken Burger</option>
+        </select>
+        <br />
+        <input type="submit" value="Create Burger" />
+    </form>
+
+    @if (ViewBag.SelectedBurgerIngredients != null)
+    {
+        <h2>Ingredients for your selected @ViewBag.SelectedBurger:</h2>
+        <p>@ViewBag.SelectedBurgerIngredients</p>
+
+        @if (ViewBag.SelectedBurger != null && burgerImages.ContainsKey(ViewBag.SelectedBurger))
+        {
+            <img id="burgers" src="@burgerImages[ViewBag.SelectedBurger]" alt="@ViewBag.SelectedBurger"  />
+        }
+    }
+
+   
+</body>
+</html>

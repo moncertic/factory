@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+   
+}
+<!DOCTYPE HTML>
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    
+    <link rel="stylesheet" href="/css/Burgers.css" />
+
+</head>
+
+
+ 
+<div class="text-center">
+    <h2 class="display-4">Welcome @ViewBag.Name</h2>
+     
+</div>
+<hr/>
+
+
+
+<div style="text-align: center;">
+  
+
+    @Html.ActionLink( "Create Joy", "CreateBurger", "burgerMaker", null, new { @class = " btn" })
+    
+</div>
+
+<div>
+
+   
+
+</div>
+
+
+
+
+
